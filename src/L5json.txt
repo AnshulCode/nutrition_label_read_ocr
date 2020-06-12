@@ -1,0 +1,44 @@
+{
+    "servings info": "Serving size 2/3 cup (85g)",
+    "Calories": "190",
+    "Protein": {
+        "grams": "3g",
+        "daliy_val": ""
+    },
+    "Trans Fat": {
+        "grams": "0g",
+        "daliy_val": ""
+    },
+    "Total Sugars": {
+        "grams": "18g",
+        "daliy_val": ""
+    },
+    "Sodium": {
+        "grams": "65mg",
+        "daliy_val": "3%"
+    },
+    "Vitamin D": {
+        "grams": "1mcg",
+        "daliy_val": "6%"
+    },
+    "Dietary Fiber": {
+        "grams": "0g",
+        "daliy_val": "0%"
+    },
+    "Calcium": {
+        "grams": "112mg",
+        "daliy_val": "8%"
+    },
+    "Total Carbohydrate": {
+        "grams": "18g",
+        "daliy_val": "7%"
+    },
+    "Iron": {
+        "grams": "Omg",
+        "daliy_val": "0%"
+    },
+    "Potassium": {
+        "grams": "178mg",
+        "daliy_val": "4%"
+    }
+}

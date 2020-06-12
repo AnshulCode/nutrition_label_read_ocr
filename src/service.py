@@ -1,10 +1,7 @@
-from flask import Flask,request
-from PIL import Image
+from src import orc
 
-service = Flask(__name__)
+list_names = ['label1.png','label2.jpg','label3.png','label4.png','label5.png','label6.jpg','label7.jpg','label8.png','label9.jpeg','label10.jpg','label11.png','label12.png']
 
-@service.route('/',methods = ['GET','POST'])
-def entry():
-    return 'ok'
-if __name__ == '__main__':
-    service.run(host = '127.0.0.1',port = 1900)
+list_json = []
+
+print(orc.print_json('label14.png'))
