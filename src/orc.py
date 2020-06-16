@@ -13,10 +13,8 @@ def has_digit(string):
             return True
         else:
             return False
-def print_json(fname):
-    im = Image.open(fname)
+def print_json(im):
     objs = pytesseract.image_to_string(im)
-    print(objs)
     file = StringIO(objs)
     list = file.readlines()
     new_list = []
