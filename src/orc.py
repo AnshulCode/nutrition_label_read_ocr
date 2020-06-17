@@ -4,6 +4,7 @@ from io import StringIO
 import re
 from fuzzywuzzy import fuzz
 import json
+import cv2
 
 def has_digit(string):
     str = ""
@@ -14,6 +15,10 @@ def has_digit(string):
         else:
             return False
 def print_json(im):
+    ratio = im.size[1] / im.size[0]
+    ratio = round(ratio)
+    if not ratio == 2:
+        im = im.resize((im.size[0],im.size[0]*2))
     objs = pytesseract.image_to_string(im)
     file = StringIO(objs)
     list = file.readlines()
@@ -73,6 +78,8 @@ def print_json(im):
                 string_arr = string.split(" ")
                 for char in string_arr:
                     if char.__contains__("g") or char.isdigit():
+                        if not char.__contains__("g"):
+                            nutrition_facts_object[elm2]['grams'] = char +"g"
                         nutrition_facts_object[elm2]['grams'] = char
                     if char.__contains__("%"):
                         nutrition_facts_object[elm2]['daliy_val'] = char
@@ -81,3 +88,4 @@ def print_json(im):
     return json.dumps(nutrition_facts_object, indent=4)
 
 
+im = Image.open('label10.jpg')
