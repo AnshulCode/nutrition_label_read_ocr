@@ -31,16 +31,16 @@ def print_json(im):
     nutrition_facts_object = {
         'servings info': "",
         'Calories': "",
-        'Protein': {'grams': "", 'daliy_val': ""},
-        'Trans Fat': {'grams': "", 'daliy_val': ""},
-        'Total Sugars': {'grams': "", 'daliy_val': ""},
-        'Sodium': {'grams': "", 'daliy_val': ""},
-        'Vitamin D': {'grams': "", 'daliy_val': ""},
-        'Dietary Fiber': {'grams': "", 'daliy_val': ""},
-        'Calcium': {'grams': "", 'daliy_val': ""},
-        'Total Carbohydrate': {'grams': "", 'daliy_val': ""},
-        'Iron': {'grams': "", 'daliy_val': ""},
-        'Potassium': {'grams': "", 'daliy_val': ""}
+        'Protein': {'grams': "", 'daily_val': ""},
+        'Trans Fat': {'grams': "", 'daily_val': ""},
+        'Total Sugars': {'grams': "", 'daily_val': ""},
+        'Sodium': {'grams': "", 'daily_val': ""},
+        'Vitamin D': {'grams': "", 'daily_val': ""},
+        'Dietary Fiber': {'grams': "", 'daily_val': ""},
+        'Calcium': {'grams': "", 'daily_val': ""},
+        'Total Carbohydrate': {'grams': "", 'daily_val': ""},
+        'Iron': {'grams': "", 'daily_val': ""},
+        'Potassium': {'grams': "", 'daily_val': ""}
     }
     check_list = ["Calories", "Protein", "Trans Fat", "Total Sugars", "Sodium", "Vitamin D", "Dietary Fiber", "Calcium",
                   "Total Carbohydrate", "Iron", "Potassium"]
@@ -82,10 +82,16 @@ def print_json(im):
                             nutrition_facts_object[elm2]['grams'] = char +"g"
                         nutrition_facts_object[elm2]['grams'] = char
                     if char.__contains__("%"):
-                        nutrition_facts_object[elm2]['daliy_val'] = char
+                        nutrition_facts_object[elm2]['daily_val'] = char
                 break
     file.close()
+    for elm in check_list:
+        if elm.__contains__(" "):
+            old = elm
+            string = elm.replace(" ", "_")
+            nutrition_facts_object[string] = nutrition_facts_object.pop(old)
     return json.dumps(nutrition_facts_object, indent=4)
 
 
-im = Image.open('label10.jpg')
+im = Image.open('label1.png')
+print(print_json(im))
