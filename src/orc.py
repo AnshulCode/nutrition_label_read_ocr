@@ -15,10 +15,10 @@ def has_digit(string):
         else:
             return False
 def print_json(im):
-    ratio = im.size[1] / im.size[0]
+    ratio = im.shape[1] / im.shape[0]
     ratio = round(ratio)
     if not ratio == 2:
-        im = im.resize((im.size[0],im.size[0]*2))
+        im = im.resize((im.shape[0],im.shape[0]*2))
     objs = pytesseract.image_to_string(im)
     file = StringIO(objs)
     list = file.readlines()
