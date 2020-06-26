@@ -18,7 +18,10 @@ def print_json(im):
     ratio = im.shape[1] / im.shape[0]
     ratio = round(ratio)
     if not ratio == 2:
-        im = im.resize((im.shape[0],im.shape[0]*2))
+        w = im.shape[0]
+        h = im.shape[0]*2
+        dim = (w,h)
+        im =  cv2.resize(im,dim,interpolation=cv2.INTER_AREA)
     objs = pytesseract.image_to_string(im)
     file = StringIO(objs)
     list = file.readlines()
@@ -93,5 +96,5 @@ def print_json(im):
     return json.dumps(nutrition_facts_object, indent=4)
 
 
-im = Image.open('label1.png')
+im = cv2.imread('l6.jpg')
 print(print_json(im))
